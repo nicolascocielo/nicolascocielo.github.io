@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercado Online</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0fa53a,#63d471,#b6ffbe);
+    background-size:400% 400%;
+    animation:fundoAnimado 10s ease infinite;
+    padding:30px;
+    overflow-x:hidden;
+}
+
+@keyframes fundoAnimado{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+    font-size:40px;
+}
+
+/* PRODUTOS */
+.produtos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.95);
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+/* NOVO ESTILO IMAGEM */
+.foto-box{
+    width:180px;
+    height:180px;
+    margin:auto;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid #0fa53a;
+    box-shadow:0 0 20px rgba(15,165,58,0.4);
+    margin-bottom:15px;
+}
+
+.foto-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.foto-box img:hover{
+    transform:scale(1.15) rotate(3deg);
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.arquivo{
+    background:#f2f2f2;
+    cursor:pointer;
+}
+
+button{
+    background:#0fa53a;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0b7c2b;
+    transform:scale(1.05);
+}
+
+@media(max-width:900px){
+    .produtos{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .produtos{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🛒BEST PRICE</h1>
+
+<div class="produtos">
+
+<!-- PRODUTO 1 -->
+<div class="card">
+<div class="foto-box">
+<img src="" id="img1">
+</div>
+<input type="file" class="arquivo" accept="image/*" onchange="trocarImagem(event,'img1')">
+<input type="text" placeholder="Nome do Produto">
+<input type="text" placeholder="Preço">
+<button>Comprar</button>
+</div>
+
+<!-- PRODUTO 2 -->
+<div class="card">
+<div class="foto-box">
+<img src="" id="img2">
+</div>
+<input type="file" class="arquivo" accept="image/*" onchange="trocarImagem(event,'img2')">
+<input type="text" placeholder="Nome do Produto">
+<input type="text" placeholder="Preço">
+<button>Comprar</button>
+</div>
+
+<!-- PRODUTO 3 -->
+<div class="card">
+<div class="foto-box">
+<img src="" id="img3">
+</div>
+<input type="file" class="arquivo" accept="image/*" onchange="trocarImagem(event,'img3')">
+<input type="text" placeholder="Nome do Produto">
+<input type="text" placeholder="Preço">
+<button>Comprar</button>
+</div>
+
+<!-- PRODUTO 4 -->
+<div class="card">
+<div class="foto-box">
+<img src="" id="img4">
+</div>
+<input type="file" class="arquivo" accept="image/*" onchange="trocarImagem(event,'img4')">
+<input type="text" placeholder="Nome do Produto">
+<input type="text" placeholder="Preço">
+<button>Comprar</button>
+</div>
+
+<!-- PRODUTO 5 -->
+<div class="card">
+<div class="foto-box">
+<img src="" id="img5">
+</div>
+<input type="file" class="arquivo" accept="image/*" onchange="trocarImagem(event,'img5')">
+<input type="text" placeholder="Nome do Produto">
+<input type="text" placeholder="Preço">
+<button>Comprar</button>
+</div>
+
+<!-- PRODUTO 6 -->
+<div class="card">
+<div class="foto-box">
+<img src="" id="img6">
+</div>
+<input type="file" class="arquivo" accept="image/*" onchange="trocarImagem(event,'img6')">
+<input type="text" placeholder="Nome do Produto">
+<input type="text" placeholder="Preço">
+<button>Comprar</button>
+</div>
+
+</div>
+</div>
+
+<script>
+function trocarImagem(event,id){
+    let arquivo = event.target.files[0];
+
+    if(arquivo){
+        document.getElementById(id).src = URL.createObjectURL(arquivo);
+    }
+}
+</script>
+
+</body>
+</html>
